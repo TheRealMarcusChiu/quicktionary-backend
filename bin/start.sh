@@ -1,3 +1,4 @@
 #! /bin/bash
 
-/root/quicktionary-backend/mvnw spring-boot:run
+cd /root/quicktionary-backend/
+./mvnw spring:run
