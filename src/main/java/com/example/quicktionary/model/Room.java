@@ -23,6 +23,8 @@ public class Room {
     private String activeBlueCardContent;
     private String activeRedCardContent;
 
+    private String updateMessage;
+
     public Room() {
         updateYellowCardContent();
         updateBlueCardContent();

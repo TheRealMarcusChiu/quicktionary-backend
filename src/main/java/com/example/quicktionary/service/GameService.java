@@ -36,10 +36,12 @@ public class GameService {
             room.updateRedCardContent();
         }
 
+        room.setUpdateMessage(participantName + " acquired the " + cardColor + " card");
         webSocketController.roomUpdated(room);
     }
     public void clearRoom() {
         room.getParticipants().clear();
+        room.setUpdateMessage("The host has reset room. Please go back to homepage");
         webSocketController.roomUpdated(room);
     }
 
@@ -51,6 +53,7 @@ public class GameService {
         } else {
             Participant participant = Participant.builder().name(participantName).build();
             participants.add(participant);
+            room.setUpdateMessage(participantName + " joined the room");
             webSocketController.roomUpdated(room);
             return true;
         }
