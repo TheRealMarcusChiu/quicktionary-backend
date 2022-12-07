@@ -1,0 +1,19 @@
+# place into /lib/systemd/system/quicktionary.service
+# sudo systemctl daemon-reload
+# systemctl start quicktionary
+# systemctl enable quicktionary
+[Unit]
+Description=Quicktionary Application
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/root/quicktionary-backend/bin/start.sh
+ExecStop=/root/quicktionary-backend/bin/stop.sh
+
+[Install]
+WantedBy=multi-user.target
