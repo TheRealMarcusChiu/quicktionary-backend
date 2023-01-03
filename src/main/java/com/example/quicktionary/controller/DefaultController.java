@@ -47,4 +47,10 @@ public class DefaultController {
         gameService.participantAcquiresCard(participantName, cardColor);
         return Response.success();
     }
+
+    @PostMapping("/room/clear-current-cards")
+    public Response clearCurrentCards(final @PathVariable("name") String participantName) {
+        gameService.clearCurrentCards(participantName);
+        return Response.success();
+    }
 }

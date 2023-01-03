@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -57,6 +56,15 @@ public class GameService {
             webSocketController.roomUpdated(room);
             return true;
         }
+    }
+
+    public void clearCurrentCards(final String participantName) {
+        room.updateYellowCardContent();
+        room.updateBlueCardContent();
+        room.updateRedCardContent();
+
+        room.setUpdateMessage(participantName + " cleared current cards");
+        webSocketController.roomUpdated(room);
     }
 
     public static class GameServiceException extends Exception {
