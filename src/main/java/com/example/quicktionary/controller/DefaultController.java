@@ -48,7 +48,7 @@ public class DefaultController {
         return Response.success();
     }
 
-    @PostMapping("/room/clear-current-cards")
+    @PostMapping("/participant/{name}/clear-current-cards")
     public Response clearCurrentCards(final @PathVariable("name") String participantName) {
         gameService.clearCurrentCards(participantName);
         return Response.success();
